@@ -1,0 +1,21 @@
+<IfModule mod_php5.c>
+	php_value error_reporting 1
+	php_flag display_errors off 
+	php_flag display_startup_errors off
+	php_flag short_open_tag on
+</IfModule>
+
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /parts/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !components/urlrewrite.php$
+	RewriteRule ^(.*)$ components/urlrewrite.php [L]
+	
+	
+</IfModule>
+
+
